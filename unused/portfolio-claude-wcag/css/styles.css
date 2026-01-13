@@ -1,0 +1,222 @@
+/* Color Palette */
+:root {
+    --color-primary: hsl(220, 90%, 56%);
+    --color-primary-light-1: hsl(220, 90%, 66%);
+    --color-primary-light-2: hsl(220, 90%, 76%);
+    --color-primary-light-3: hsl(220, 90%, 86%);
+    --color-primary-dark-1: hsl(220, 90%, 46%);
+    --color-primary-dark-2: hsl(220, 90%, 36%);
+    --color-primary-dark-3: hsl(220, 90%, 26%);
+
+    --color-secondary: hsl(45, 90%, 56%);
+    --color-secondary-light-1: hsl(45, 90%, 66%);
+    --color-secondary-light-2: hsl(45, 90%, 76%);
+    --color-secondary-light-3: hsl(45, 90%, 86%);
+    --color-secondary-dark-1: hsl(45, 90%, 46%);
+    --color-secondary-dark-2: hsl(45, 90%, 36%);
+    --color-secondary-dark-3: hsl(45, 90%, 26%);
+
+    --color-accent: hsl(340, 80%, 56%);
+    --color-accent-light-1: hsl(340, 80%, 66%);
+    --color-accent-light-2: hsl(340, 80%, 76%);
+    --color-accent-light-3: hsl(340, 80%, 86%);
+    --color-accent-dark-1: hsl(340, 80%, 46%);
+    --color-accent-dark-2: hsl(340, 80%, 36%);
+    --color-accent-dark-3: hsl(340, 80%, 26%);
+
+    --color-neutral: hsl(0, 0%, 56%);
+    --color-neutral-light-1: hsl(0, 0%, 66%);
+    --color-neutral-light-2: hsl(0, 0%, 76%);
+    --color-neutral-light-3: hsl(0, 0%, 86%);
+    --color-neutral-dark-1: hsl(0, 0%, 46%);
+    --color-neutral-dark-2: hsl(0, 0%, 36%);
+    --color-neutral-dark-3: hsl(0, 0%, 26%);
+
+    --color-background: hsl(210, 20%, 96%);
+    --color-background-light-1: hsl(210, 20%, 98%);
+    --color-background-light-2: hsl(210, 20%, 99%);
+    --color-background-dark-1: hsl(210, 20%, 94%);
+    --color-background-dark-2: hsl(210, 20%, 92%);
+    --color-background-dark-3: hsl(210, 20%, 90%);
+}
+
+/* Typography */
+:root {
+    --font-size-xxl: clamp(2.5rem, 5vw, 3rem);
+    --font-size-xl: clamp(2rem, 4vw, 2.5rem);
+    --font-size-lg: clamp(1.5rem, 3vw, 2rem);
+    --font-size-md: clamp(1.25rem, 2.5vw, 1.5rem);
+    --font-size-sm: clamp(1rem, 2vw, 1.25rem);
+    --font-size-xs: clamp(0.875rem, 1.5vw, 1rem);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--color-neutral-dark-1);
+    background-color: var(--color-background);
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--color-primary);
+    color: white;
+}
+
+header .logo img {
+    max-height: 50px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+}
+
+/* Introduction Section */
+.introduction {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.introduction .intro-text {
+    flex: 1;
+}
+
+.introduction .intro-text h1 {
+    font-size: var(--font-size-xxl);
+    color: var(--color-primary-dark-1);
+}
+
+.introduction .intro-text p {
+    font-size: var(--font-size-md);
+}
+
+.introduction .intro-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 2rem;
+    background-color: var(--color-background-light-1);
+}
+
+.testimonials h2 {
+    font-size: var(--font-size-xl);
+    color: var(--color-primary-dark-2);
+}
+
+.testimonials ul {
+    list-style: none;
+    padding: 0;
+}
+
+.testimonials blockquote {
+    font-size: var(--font-size-md);
+    font-style: italic;
+    color: var(--color-neutral-dark-2);
+}
+
+.testimonials p {
+    font-size: var(--font-size-sm);
+    color: var(--color-neutral-dark-3);
+}
+
+/* Call to Action Section */
+.cta {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--color-secondary);
+    color: white;
+}
+
+.cta h2 {
+    font-size: var(--font-size-xl);
+}
+
+.cta p {
+    font-size: var(--font-size-md);
+}
+
+.cta .button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-accent);
+    color: white;
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+/* Contact Section */
+.contact {
+    padding: 2rem;
+}
+
+.contact h2 {
+    font-size: var(--font-size-xl);
+    color: var(--color-primary-dark-1);
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact label {
+    font-size: var(--font-size-sm);
+}
+
+.contact input,
+.contact textarea {
+    font-size: var(--font-size-md);
+    padding: 0.5rem;
+    border: 1px solid var(--color-neutral-light-2);
+    border-radius: 4px;
+}
+
+.contact button {
+    font-size: var(--font-size-md);
+    padding: 0.75rem;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact button:hover {
+    background-color: var(--color-primary-dark-1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--color-primary-dark-2);
+    color: white;
+    font-size: var(--font-size-sm);
+}

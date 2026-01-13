@@ -1,0 +1,70 @@
+:root {
+    /* Space & Eco Brutalism Theme Colors */
+    --primary: #4CAF50; /* Earthy green */
+    --primary-light-1: #66BB6A; /* Lighter green */
+    --primary-light-2: #81C784; /* Even lighter green */
+    --primary-dark-1: #388E3C; /* Darker green */
+    --primary-dark-2: #2E7D32; /* Even darker green */
+
+    --secondary: #1E88E5; /* Space blue */
+    --secondary-light-1: #42A5F5; /* Lighter blue */
+    --secondary-light-2: #64B5F6; /* Even lighter blue */
+    --secondary-dark-1: #1976D2; /* Darker blue */
+    --secondary-dark-2: #1565C0; /* Even darker blue */
+
+    --background: #121212; /* Deep space black */
+    --header: #1E1E1E; /* Deep blue for header */
+    --text: #BDBDBD; /* Neutral gray for text */
+    --accent: #757575; /* Brutalist gray */
+
+    /* Spacing Scale */
+    --spacing-xxs: 4px;
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 32px;
+    --spacing-xl: 40px;
+    --spacing-xxl: 48px;
+
+    /* Typography */
+    --line-height: 1.5;
+}
+
+/* Responsive Typography Classes with Line Heights */
+.font-xxl {
+    font-size: clamp(2rem, 5vw, 3rem); /* Responsive font size for XXL */
+    line-height: 1.15; /* Line height proportional to font size */
+}
+
+.font-xl {
+    font-size: clamp(1.5rem, 4vw, 2.5rem); /* Responsive font size for XL */
+    line-height: 1.15; /* Line height proportional to font size */
+}
+
+.font-lg {
+    font-size: clamp(1.25rem, 3vw, 2rem); /* Responsive font size for LG */
+    line-height: 1.15; /* Line height proportional to font size */
+}
+
+.font-md {
+    font-size: clamp(1rem, 2.5vw, 1.5rem); /* Responsive font size for MD */
+    line-height: 1.15; /* Line height proportional to font size */
+}
+
+.font-sm {
+    font-size: clamp(0.875rem, 2vw, 1.25rem); /* Responsive font size for SM */
+    line-height: 1.15; /* Line height proportional to font size */
+}
+
+/* General Typography */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: var(--line-height);
+    color: var(--text);
+    background-color: var(--background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: var(--line-height);
+    margin-bottom: var(--spacing-sm);
+}

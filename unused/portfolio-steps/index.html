@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <div class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="50" height="50" class="logo-svg">
+                <!-- Space & Eco Brutalism Logo -->
+                <circle cx="50" cy="50" r="48" fill="var(--background)" stroke="var(--primary)" stroke-width="4" />
+                <path d="M50 15 L70 50 L50 85 L30 50 Z" fill="var(--secondary)" />
+                <circle cx="50" cy="50" r="10" fill="var(--primary-light-1)" />
+            </svg>
+            <span>My Portfolio</span>
+        </div>
+    </header>
+    <main>
+        <h1>Welcome to My Portfolio</h1>
+        <p>Explore my projects and learn more about me.</p>
+        <section class="introduction">
+            <div class="introspective">
+                <h2>Introspective</h2>
+                <p>In the vastness of space and the grounding of nature, I find my inspiration. My work bridges the infinite and the tangible, creating harmony between the two.</p>
+            </div>
+            <div class="about-me">
+                <div class="text">
+                    <h2>About Me</h2>
+                    <p>Hi, I’m [Your Name], a passionate creator who blends the aesthetics of space and eco brutalism into unique designs. Let’s explore the universe of creativity together.</p>
+                </div>
+                <div class="image">
+                    <img src="https://picsum.photos/800/600" alt="About Me Placeholder" />
+                </div>
+                <!-- Updated placeholder image for the About Me section -->
+            </div>
+        </section>
+        <section class="cta">
+            <h2 class="font-xl">Latest Projects</h2>
+            <ul class="project-list">
+                <li class="font-md">Project 1: <a href="/portfolio/project-1">View Details</a></li>
+                <li class="font-md">Project 2: <a href="/portfolio/project-2">View Details</a></li>
+                <li class="font-md">See more projects: <a href="/portfolio">Explore Portfolio</a></li>
+            </ul>
+        </section>
+        <section class="testimonials scroll--root">
+            <div class="scroll--viewport">
+                <div class="scroll--content">
+                    <div class="testimonial">
+                        <p class="font-md">"An amazing experience working with such a talented individual!"</p>
+                        <span>- Client A</span>
+                    </div>
+                    <div class="testimonial">
+                        <p class="font-md">"The designs were out of this world, truly inspiring!"</p>
+                        <span>- Client B</span>
+                    </div>
+                    <div class="testimonial">
+                        <p class="font-md">"Professional, creative, and a joy to collaborate with."</p>
+                        <span>- Client C</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="contact">
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h2 class="font-xl">Get in Touch</h2>
+                    <form action="#" method="post">
+                        <label for="name" class="font-md">Name</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="email" class="font-md">Email</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="message" class="font-md">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+
+                        <button type="submit" class="font-md">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-image">
+                    <img src="https://picsum.photos/1200/800" alt="Contact Placeholder" />
+                </div>
+                <!-- Updated placeholder image for the Contact section -->
+            </div>
+        </section>
+    </main>
+</body>
+</html>

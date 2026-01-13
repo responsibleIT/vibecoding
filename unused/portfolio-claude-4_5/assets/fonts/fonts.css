@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'SpaceFont';
+    src: url('../fonts/SpaceFont.woff2') format('woff2'),
+         url('../fonts/SpaceFont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GalaxyFont';
+    src: url('../fonts/GalaxyFont.woff2') format('woff2'),
+         url('../fonts/GalaxyFont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'SpaceFont', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'GalaxyFont', serif;
+}

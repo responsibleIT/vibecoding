@@ -1,0 +1,137 @@
+/* Palette: 5 colors each with 3 shades and 3 tints (HSL values) */
+:root{
+  /* Color 1 - Space Blue */
+  --space-blue-500: hsl(230 60% 25%);
+  --space-blue-600: hsl(230 60% 20%); /* shade */
+  --space-blue-700: hsl(230 60% 15%);
+  --space-blue-800: hsl(230 60% 10%);
+  --space-blue-300: hsl(230 60% 35%); /* tint */
+  --space-blue-200: hsl(230 60% 45%);
+  --space-blue-100: hsl(230 60% 60%);
+
+  /* Color 2 - Star Gold */
+  --star-gold-500: hsl(48 95% 60%);
+  --star-gold-600: hsl(48 95% 50%);
+  --star-gold-700: hsl(48 95% 40%);
+  --star-gold-800: hsl(48 95% 30%);
+  --star-gold-300: hsl(48 95% 70%);
+  --star-gold-200: hsl(48 95% 80%);
+  --star-gold-100: hsl(48 95% 90%);
+
+  /* Color 3 - Nebula Purple */
+  --nebula-purple-500: hsl(270 65% 55%);
+  --nebula-purple-600: hsl(270 65% 45%);
+  --nebula-purple-700: hsl(270 65% 35%);
+  --nebula-purple-800: hsl(270 65% 25%);
+  --nebula-purple-300: hsl(270 65% 65%);
+  --nebula-purple-200: hsl(270 65% 75%);
+  --nebula-purple-100: hsl(270 65% 85%);
+
+  /* Color 4 - Planet Green */
+  --planet-green-500: hsl(150 55% 43%);
+  --planet-green-600: hsl(150 55% 35%);
+  --planet-green-700: hsl(150 55% 28%);
+  --planet-green-800: hsl(150 55% 18%);
+  --planet-green-300: hsl(150 55% 53%);
+  --planet-green-200: hsl(150 55% 63%);
+  --planet-green-100: hsl(150 55% 73%);
+
+  /* Color 5 - Comet Pink */
+  --comet-pink-500: hsl(340 75% 65%);
+  --comet-pink-600: hsl(340 75% 55%);
+  --comet-pink-700: hsl(340 75% 45%);
+  --comet-pink-800: hsl(340 75% 35%);
+  --comet-pink-300: hsl(340 75% 75%);
+  --comet-pink-200: hsl(340 75% 85%);
+  --comet-pink-100: hsl(340 75% 95%);
+
+  /* Neutral */
+  --bg: var(--space-blue-800);
+  --surface: var(--space-blue-700);
+  --muted: var(--space-blue-300);
+  --text-on-dark: var(--star-gold-100);
+  --accent: var(--star-gold-500);
+  --accent-strong: var(--star-gold-600);
+  --highlight: var(--comet-pink-500);
+  --success: var(--planet-green-500);
+}
+
+/* Typography: clamp() with minimum 16px enforced via 1rem root size. */
+html{font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; font-size:100%; box-sizing:border-box;}
+,*,:before,:after{box-sizing:inherit}
+body{margin:0; background:linear-gradient(180deg,var(--bg),var(--surface)); color:var(--text-on-dark); line-height:1.5;}
+
+:root{
+  --font-xxl: clamp(2.5rem, 4.5vw, 3.5rem); /* ~40px - 56px */
+  --font-xl: clamp(2rem, 3.5vw, 2.75rem);    /* ~32px - 44px */
+  --font-lg: clamp(1.5rem, 2.6vw, 2rem);     /* ~24px - 32px */
+  --font-md: clamp(1.125rem, 1.8vw, 1.5rem); /* ~18px - 24px */
+  --font-sm: clamp(1rem, 1.2vw, 1.125rem);   /* 16px - 18px */
+  --font-xs: clamp(1rem, 1vw, 1rem);         /* min 16px */
+}
+
+.container{width:90%;max-width:1100px;margin:0 auto;padding:1.25rem}
+
+/* Skip link */
+.skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{position:static;left:auto;top:auto;width:auto;height:auto;padding:.5rem 1rem;background:var(--accent);color:var(--space-blue-100);border-radius:.25rem}
+
+/* Header */
+.site-header{background:transparent;padding:.75rem 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--text-on-dark)}
+.logo svg{flex:0 0 48px;border-radius:6px}
+.brand{font-size:var(--font-md);font-weight:700}
+
+.main-nav ul{display:flex;gap:1.25rem;list-style:none;margin:0;padding:0}
+.main-nav a{color:var(--text-on-dark);text-decoration:none;font-size:var(--font-sm);padding:.25rem .5rem;border-radius:.25rem}
+.main-nav a:focus,.main-nav a:hover{outline:3px solid var(--accent-strong);outline-offset:3px;background:rgba(255,255,255,.02)}
+
+/* Hero */
+.hero{display:flex;gap:2rem;align-items:center;padding:2.25rem 0}
+.hero-left{flex:1 1 360px}
+.hero-right{flex:1 1 320px;display:flex;justify-content:center}
+.hero h1{font-size:var(--font-xxl);margin:0 0 .5rem;color:var(--star-gold-100)}
+.lead{font-size:var(--font-lg);color:var(--star-gold-300);margin-top:0}
+.hero img{width:100%;height:auto;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,.45);border:4px solid rgba(255,255,255,.03)}
+
+/* Testimonials */
+.testimonials{margin-top:2rem}
+.test-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;padding:0;margin:0;list-style:none}
+blockquote{background:var(--nebula-purple-100);color:var(--space-blue-100);padding:1rem;border-left:6px solid var(--nebula-purple-500);border-radius:8px;margin:0}
+blockquote footer{font-size:var(--font-xs);color:var(--nebula-purple-700);margin-top:.5rem}
+
+/* CTA */
+.cta{text-align:center;padding:1.75rem;border-radius:10px;margin-top:2rem;background:linear-gradient(180deg,var(--planet-green-300),var(--planet-green-200));color:var(--space-blue-800)}
+.btn{display:inline-block;background:var(--comet-pink-500);color:var(--space-blue-800);padding:.6rem 1.25rem;border-radius:999px;text-decoration:none;font-weight:700;font-size:var(--font-sm);border:0;cursor:pointer}
+.btn:focus,.btn:hover{background:var(--comet-pink-600);outline:3px solid var(--comet-pink-300);outline-offset:3px}
+.btn-primary{background:var(--accent);color:var(--space-blue-800}
+
+/* Contact form */
+.contact{margin-top:2rem}
+form{max-width:720px;margin:0 auto;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:1.25rem;border-radius:12px;box-shadow:0 6px 30px rgba(0,0,0,.45)}
+.form-row{margin-bottom:1rem}
+label{display:block;font-size:var(--font-sm);margin-bottom:.35rem;color:var(--star-gold-300)}
+input[type="text"],input[type="email"],textarea{width:100%;padding:.8rem;border-radius:8px;border:2px solid rgba(255,255,255,.06);background:transparent;color:var(--text-on-dark);font-size:var(--font-sm)}
+textarea{min-height:140px}
+input:focus,textarea:focus{outline:3px solid var(--accent-strong);outline-offset:2px}
+input:invalid,textarea:invalid{border-color:var(--comet-pink-600)}
+
+.muted{opacity:.9;font-size:var(--font-xs);color:var(--star-gold-300)}
+.help{font-size:var(--font-sm);color:var(--star-gold-300)}
+.form-status{margin-top:.5rem;font-size:var(--font-sm);min-height:1.2em}
+
+.visually-hidden{position:absolute!important;height:1px;width:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* Footer */
+.site-footer{padding:1.5rem 0;text-align:center;color:var(--star-gold-300)}
+
+/* Responsive */
+@media (max-width:900px){
+  .hero{flex-direction:column;text-align:center}
+  .hero-left,.hero-right{width:100%}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="assets/images/logo.svg" alt="Space-themed logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="./blog">Blog</a></li>
+                <li><a href="./portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="introduction">
+            <h1>Welcome to My Portfolio</h1>
+            <img src="assets/images/hero-image.jpg" alt="A stunning space scene" class="hero-image">
+            <p>Explore my work and get to know me better!</p>
+        </section>
+
+        <section id="testimonials">
+            <h2>What People Are Saying</h2>
+            <blockquote>
+                <p>"An amazing experience! Highly recommend."</p>
+                <cite>- Happy Client</cite>
+            </blockquote>
+            <blockquote>
+                <p>"Professional and creative work that exceeded my expectations."</p>
+                <cite>- Satisfied Customer</cite>
+            </blockquote>
+        </section>
+
+        <section id="call-to-action">
+            <h2>View My Portfolio</h2>
+            <p>Check out my latest projects and see what I can do for you!</p>
+            <a href="./portfolio" class="cta-button">View Portfolio</a>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form id="contact-form" action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

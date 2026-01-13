@@ -1,0 +1,485 @@
+@import url('general.css');
+
+/* Theme shades and animations */
+:root {
+    --background: #1a1a1a;
+    --primary: #4caf50;
+    --primary-light-1: #81c784;
+    --secondary: #ff5722;
+    --text: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+}
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background-color: var(--header);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo svg {
+    margin-right: 10px;
+}
+
+.logo svg circle {
+    fill: var(--primary);
+}
+
+.logo svg path {
+    fill: var(--secondary);
+}
+
+.logo-svg {
+    animation: rotate-logo 5s linear infinite;
+}
+
+@keyframes rotate-logo {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+main {
+    background-color: var(--header);
+    color: var(--text);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Additional styles for contrast testing */
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--secondary);
+}
+
+/* Styles for the introduction section */
+.introduction {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--background);
+    color: var(--text);
+}
+
+.introspective {
+    text-align: center;
+    border-bottom: 2px solid var(--primary-dark-1);
+    padding-bottom: var(--spacing-md);
+}
+
+.about-me {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.about-me .text {
+    flex: 1;
+}
+
+.about-me .image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.about-me .image img {
+    max-width: 100%;
+    border: 5px solid var(--primary);
+    border-radius: 10px;
+}
+
+.cta {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+    animation: fade-in 2s ease-in-out;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Updated styles for horizontal project list with cards */
+.project-list {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-md) 0;
+}
+
+.project-list li {
+    position: relative;
+    background-color: var(--header);
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    padding: var(--spacing-sm);
+    flex: 1;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project-list li a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    z-index: 1;
+}
+
+.project-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.project-list li:last-child {
+    background-color: var(--primary);
+    color: var(--background);
+    font-weight: bold;
+}
+
+/* Styles for Testimonials Section */
+.testimonials {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--header);
+    color: var(--text);
+    animation: slide-in 1.5s ease-in-out;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.scroll--root {
+    display: block;
+    overflow: hidden;
+    padding: var(--spacing-md);
+}
+
+.scroll--viewport {
+    display: flex;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+}
+
+.scroll--content {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.testimonial {
+    flex: 0 0 80%;
+    background-color: var(--background);
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    padding: var(--spacing-md);
+    scroll-snap-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial p {
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-md);
+}
+
+.testimonial span {
+    display: block;
+    margin-top: var(--spacing-sm);
+    font-size: var(--font-sm);
+    color: var(--accent);
+}
+
+/* Fallback for browsers without scroll-snap support */
+@supports not (scroll-snap-type: x mandatory) {
+    .scroll--viewport {
+        overflow-x: scroll;
+    }
+
+    .testimonial {
+        flex: 1 1 auto;
+    }
+}
+
+/* Custom scrollbar styles */
+.scroll--viewport::-webkit-scrollbar {
+    height: 8px;
+}
+
+.scroll--viewport::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+.scroll--viewport::-webkit-scrollbar-track {
+    background: var(--header);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.introduction, .cta, .testimonials {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@layer support, lessons;
+
+@import "https://unpkg.com/open-props" layer(support.design-system);
+@import "https://unpkg.com/open-props/normalize.min.css" layer(support.demo);
+@import "https://unpkg.com/open-props/buttons.min.css" layer(support.demo);
+
+/* Essentials for scrolling */
+@layer lessons.essentials {
+  .scroll--viewport {
+    display: flex;
+    overflow: auto hidden;
+    overscroll-behavior-x: contain;
+    inline-size: 100cqi;
+    max-inline-size: 100%;
+
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+/* Custom scrollbar styles */
+@layer lessons.colorize {
+  .scroll--viewport {
+    &::-webkit-scrollbar {
+      height: 16px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #0000;
+      background-clip: padding-box;
+      margin: calc(var(--size-5) - 3px);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: color-mix(in srgb, light-dark(white, var(--surface-2)), #0000 50%);
+      border-radius: 1e3px;
+      border: 3px solid var(--page-bg);
+    }
+
+    &:is(:focus-visible, :focus-within)::-webkit-scrollbar-thumb {
+      background: var(--link);
+    }
+
+    @media (hover) {
+      &::-webkit-scrollbar-thumb:hover {
+        background: light-dark(white, var(--surface-2));
+      }
+
+      &::-webkit-scrollbar {
+        opacity: 0.5;
+      }
+
+      &::-webkit-scrollbar:hover {
+        opacity: 1;
+      }
+    }
+
+    @supports (-moz-appearance:none) {
+      scrollbar-width: thin;
+      scrollbar-color: light-dark(white, var(--surface-2)) #0000;
+
+      &:is(:focus-visible, :focus-within) {
+        scrollbar-color: var(--link) #0000;
+      }
+
+      @media (hover) {
+        scrollbar-color: light-dark(white, var(--surface-2)) #0000;
+      }
+    }
+  }
+}
+
+/* Containerize for scroll state */
+@layer lessons.containerize {
+  .scroll--root {
+    container: --scroll--root / inline-size;
+
+    > .scroll--viewport {
+      container: --scroll--viewport / scroll-state;
+    }
+  }
+}
+
+/* Scroll buttons for navigation */
+@layer lessons.scroll-buttons {
+  .scroll--viewport {
+    @supports selector(::scroll-button(*)) {
+      &::scroll-button(*) {
+        appearance: none;
+        background-color: var(--primary);
+        border: 2px solid var(--secondary);
+        border-radius: 50%;
+        inline-size: 70px;
+        padding: var(--size-2);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        transition: opacity 0.5s, box-shadow 0.5s, scale 0.8s, background-color 0.2s;
+        color: var(--background);
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      &::scroll-button(left) {
+        content: '⬅';
+      }
+
+      &::scroll-button(right) {
+        content: '⮕';
+      }
+
+      &::scroll-button(*):hover {
+        background-color: var(--secondary);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+      }
+
+      &::scroll-button(*):active {
+        transform: scale(0.9);
+      }
+    }
+  }
+}
+
+/* Scroll shadows for hints */
+@layer lessons.scroll-shadows {
+  .scroll--viewport {
+    background-image: radial-gradient(
+      closest-corner circle at calc(var(--_overscroll-gradient-offset) * -1) 50%,
+      hsl(0 0% 0% / var(--＠scroll-shadow-opacity-left)),
+      var(--_overscroll-gradient-strength),
+      #0000
+    );
+  }
+}
+
+/* Styles for Contact Section */
+.contact {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--background);
+    color: var(--text);
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.contact-form {
+    flex: 2;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.contact-form label {
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: var(--spacing-sm);
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    font-size: var(--font-md);
+}
+
+.contact-form button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--primary);
+    color: var(--background);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: var(--secondary);
+}
+
+.contact-image {
+    flex: 1;
+    display: none;
+}
+
+.contact-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+    .contact-container {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .contact-image {
+        display: block;
+    }
+}
