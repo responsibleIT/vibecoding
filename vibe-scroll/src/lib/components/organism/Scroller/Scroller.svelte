@@ -44,6 +44,7 @@
     position: relative;
     list-style: none;
     margin-top: 1.25rem;
+
     li {
       position: absolute;
       top: 0;
@@ -54,11 +55,12 @@
         calc(sibling-index() * 0rem)
       );
     }
+
     &.layed-out {
       padding: unset;
       display: flex;
       flex-wrap: nowrap;
-      overflow-x: auto;
+      overflow-x: hidden;
       gap: 2rem;
 
       li {
@@ -79,7 +81,7 @@
           box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
           cursor: pointer;
         }
-        
+
         &::scroll-button(*):not(:disabled):is(:hover, :focus-visible) {
           background-color: var(--color-dark-tint);
         }
