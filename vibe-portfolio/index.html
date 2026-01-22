@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Melodrama Portfolio</title>
+  <style>
+    @font-face {
+      font-family: 'Melodrama';
+      src: url('Melodrama-Variable.ttf') format('truetype-variations');
+      font-weight: 100 900;
+    }
+    @font-face {
+      font-family: 'Nunito';
+      src: url('Nunito-Variable.ttf') format('truetype-variations');
+      font-weight: 100 900;
+    }
+    :root {
+      --heading-font: 'Melodrama', serif;
+      --body-font: 'Nunito', sans-serif;
+      --min-font-size: 16px;
+      --max-width: 1200px;
+      --gap: 1.5rem;
+      --primary: #6a0dad;
+      --secondary: #4b0082;
+      --accent: #ff6b6b;
+      --bg: #f9f9f9;
+      --text: #333;
+    }
+    [data-theme="dark"] {
+      --bg: #1a1a1a;
+      --text: #f0f0f0;
+      --primary: #a855f7;
+      --secondary: #7c3aed;
+      --accent: #fb7185;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: var(--body-font);
+      font-size: var(--min-font-size);
+      font-size: clamp(var(--min-font-size), 2vw, 1.2rem);
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      padding: 0 1rem;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    h1, h2, h3 {
+      font-family: var(--heading-font);
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    header, main, footer {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: var(--gap) 0;
+    }
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero {
+      animation: fadeIn 1.5s ease-out;
+    }
+    .hero img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      transform: skewX(5deg) translateX(-10px);
+      transition: transform 0.3s ease;
+    }
+    .hero img:hover {
+      transform: skewX(0) translateX(0);
+    }
+    .project {
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+      animation-delay: calc(var(--order) * 0.2s);
+      position: relative;
+      overflow: hidden;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .project:hover {
+        transform: translateY(-10px) scale(1.02);
+      }
+    }
+    /* Layout */
+    video {
+      width: 100%;
+      max-width: 800px;
+      margin: var(--gap) auto;
+      display: block;
+      border-radius: 4px;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--gap);
+      margin: var(--gap) 0;
+    }
+    .project {
+      background: var(--bg);
+      padding: 1.5rem;
+      border-radius: 4px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      --order: 0;
+    }
+    .project:nth-child(1) { --order: 1; }
+    .project:nth-child(2) { --order: 2; }
+    .project:nth-child(3) { --order: 3; }
+    .project img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    .project dl {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .project dt {
+      font-weight: bold;
+      color: var(--secondary);
+    }
+    /* Intro */
+    .intro {
+      text-align: center;
+      margin: var(--gap) 0;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeIn 1.5s ease-out;
+    }
+    .intro p {
+      margin-bottom: 1rem;
+      font-size: 1.1em;
+    }
+    /* Form */
+    .contact {
+      background: var(--bg);
+      padding: 2rem;
+      border-radius: 4px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin: var(--gap) 0;
+      animation: fadeIn 1.5s ease-out;
+    }
+    .contact h2 {
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: var(--body-font);
+      background: var(--bg);
+      color: var(--text);
+      border-color: var(--secondary);
+    }
+    .form-group textarea {
+      height: 120px;
+      resize: vertical;
+    }
+    button[type="submit"] {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: var(--heading-font);
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    button[type="submit"]:hover {
+      background: var(--secondary);
+    }
+    /* Theme Toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 100;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 2.5rem;
+      height: 2.5rem;
+      cursor: pointer;
+      font-family: var(--heading-font);
+      font-size: 1.2rem;
+    }
+    /* Form Feedback */
+    .form-feedback {
+      margin-top: 1rem;
+      padding: 0.75rem;
+      border-radius: 4px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .form-success {
+      background: rgba(0, 255, 0, 0.2);
+      color: green;
+    }
+    .form-error {
+      background: rgba(255, 0, 0, 0.2);
+      color: red;
+    }
+    /* Dynamic Hover Effect */
+    .project::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, rgba(var(--accent), 0.2) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transform-origin: center;
+      transition: background 0.3s ease;
+      opacity: 0;
+    }
+    .project:hover::after {
+      opacity: 1;
+      transform: translate(
+        calc(var(--mouse-x, 50px) - 50px),
+        calc(var(--mouse-y, 50px) - 50px)
+      );
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Melodrama Portfolio</h1>
+    <button class="theme-toggle" aria-label="Toggle dark mode">🌓</button>
+  </header>
+  <main>
+    <section class="hero">
+      <img src="https://picsum.photos/1200/600?random=1" alt="Dramatic hero image" loading="lazy">
+    </section>
+    <section class="intro">
+      <h2>Welcome to My World of Melodrama</h2>
+      <p>Here, every pixel tells a story. I craft digital experiences that blend emotion with technology, creating spaces where drama meets design. This portfolio is a glimpse into my journey—where code becomes art, and ideas take flight.</p>
+      <p>Scroll down to explore my projects, each a chapter in this unfolding narrative. And if you’d like to collaborate, drop me a line below.</p>
+    </section>
+    <section class="video">
+      <video controls preload="metadata" poster="https://picsum.photos/800/450?random=2">
+        <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+      </video>
+    </section>
+    <section class="projects">
+      <article class="project">
+        <img src="https://picsum.photos/400/300?random=3" alt="Project 1" loading="lazy">
+        <h3>Project 1: The Silent Echo</h3>
+        <p>A hauntingly beautiful web experience, blending parallax scrolling with dynamic typography. Built to evoke nostalgia and wonder.</p>
+        <dl>
+          <dt>Year</dt><dd>2025</dd>
+          <dt>Fun Factor</dt><dd>High</dd>
+          <dt>Status</dt><dd>Done</dd>
+        </dl>
+      </article>
+      <article class="project">
+        <img src="https://picsum.photos/400/300?random=4" alt="Project 2" loading="lazy">
+        <h3>Project 2: Shadows of Tomorrow</h3>
+        <p>An interactive timeline exploring the intersection of technology and humanity. Features custom SVG animations and a dark mode toggle.</p>
+        <dl>
+          <dt>Year</dt><dd>2024</dd>
+          <dt>Fun Factor</dt><dd>Medium</dd>
+          <dt>Status</dt><dd>WIP</dd>
+        </dl>
+      </article>
+      <article class="project">
+        <img src="https://picsum.photos/400/300?random=5" alt="Project 3" loading="lazy">
+        <h3>Project 3: The Last Letter</h3>
+        <p>A minimalist storytelling platform where users can pen anonymous letters to their future selves. Built with Eleventy and Sanity CMS.</p>
+        <dl>
+          <dt>Year</dt><dd>2023</dd>
+          <dt>Fun Factor</dt><dd>Low</dd>
+          <dt>Status</dt><dd>Broken</dd>
+        </dl>
+      </article>
+    </section>
+    <section class="contact">
+      <h2>Let’s Create Something Dramatic</h2>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit">Send</button>
+        <div class="form-feedback" id="formFeedback"></div>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>© 2026 Melodrama Portfolio. All rights reserved.</p>
+  </footer>
+  <script>
+    // --- Dark/Light Mode ---
+    const themeToggle = document.querySelector('.theme-toggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const currentTheme = localStorage.getItem('theme');
+
+    // Set initial theme
+    if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+    // Toggle theme
+    themeToggle.addEventListener('click', () => {
+      const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+
+    // --- Scroll Animations ---
+    const animateOnScroll = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(animateOnScroll, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.project, .intro, .contact').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+
+    // --- Form Handling ---
+    const contactForm = document.getElementById('contactForm');
+    const formFeedback = document.getElementById('formFeedback');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formFeedback.textContent = 'Message sent! (This is a demo.)';
+      formFeedback.classList.add('form-success');
+      formFeedback.style.opacity = '1';
+      contactForm.reset();
+      setTimeout(() => {
+        formFeedback.style.opacity = '0';
+        formFeedback.classList.remove('form-success');
+      }, 3000);
+    });
+
+    // --- Dynamic Project Hover Effects ---
+    document.querySelectorAll('.project').forEach(project => {
+      project.addEventListener('mousemove', (e) => {
+        const rect = project.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        project.style.setProperty('--mouse-x', `${x}px`);
+        project.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  </script>
+</body>
+</html>
